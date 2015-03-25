@@ -29,7 +29,9 @@ public class VocabReader {
 	public static Scanner openFileForReading() {
 		Scanner scanner = null;
 		try {
-			scanner = new Scanner(new File("words.txt"));
+			scanner = new Scanner(new File("C:" + File.separator + "Users"
+				+ File.separator + "Michael" + File.separator + "Desktop"
+				+ File.separator + "BootCamp"+ File.separator + "words.txt"));
 			scanner = scanner.useDelimiter("\", *\"");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
