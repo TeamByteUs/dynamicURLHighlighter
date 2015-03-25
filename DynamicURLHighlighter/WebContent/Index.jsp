@@ -9,15 +9,15 @@ pageEncoding="ISO-8859-1"%>
 <body>
 <h1>Hello!</h1>
 <p> Welcome to our dynamic word <mark>highlighter</mark>. Please
-enter a web page address below to locate and highlight
+enter a web page address below to locate and <mark>highlight</mark>
 your chosen words! </p>
 <c:if test="${message != null}">
 <p><i>${message}</i></p>
 </c:if>
 <form action="urlhighlighter" method="post">
 <input type="hidden" name="action" value="add">
-<label class="pad_top">Please enter valid URL:</label>
-<input type="url" name="url" ><br>
+<label class="pad_top">Please enter URL:</label>
+<input type="userUrl" name="userUrl" ><br>
 <label>&nbsp;</label>
 <input type="submit" value="Let's Highlight!" class="margin_left">
 </form>
