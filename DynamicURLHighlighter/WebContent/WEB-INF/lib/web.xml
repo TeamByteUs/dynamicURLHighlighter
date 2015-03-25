@@ -5,13 +5,13 @@
                              http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
     <servlet>
-        <servlet-name>URLHightligtherServlet</servlet-name>
-        <servlet-class>URLHightligtherServlet</servlet-class>
+        <servlet-name>URLHighlighterServlet</servlet-name>
+        <servlet-class>URLHighlightherServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>URLHightligtherServlet</servlet-name>
-        <url-pattern>/urlhightligther</url-pattern>
+        <servlet-name>URLHighlightherServlet</servlet-name>
+        <url-pattern>/urlHighlighther</url-pattern>
     </servlet-mapping>
 
     <session-config>
