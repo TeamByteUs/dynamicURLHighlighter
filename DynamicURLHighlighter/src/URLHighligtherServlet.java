@@ -55,20 +55,21 @@ public class URLHighligtherServlet extends HttpServlet {
         else if (action.equals("add")) {    // get parameters from the request
             String inUrl = request.getParameter("url");
             String finalHTML = HTML.mark(inUrl);
-            request.setAttribute("final", finalHTML);
+//            request.setAttribute("final", finalHTML);
        
 
             // validate the parameters
             String message;
             if (url == null || url.isEmpty())  {
                 message = "Please fill in the URL.";
-                url = "/index.jsp";
+                url = "/Index.jsp";
             } 
-            else {
-                message = null;
-                url = "/result.jsp";
-            }
-            request.setAttribute("final", finalHTML); //do you set attribute here or about in line 54? 
+//            else {
+//                message = null;
+//                url = "/Results.jsp";
+//            }
+            response.getWriter().write(finalHTML);
+//            request.setAttribute("final", finalHTML); //do you set attribute here or about in line 54? 
         }
      
         getServletContext().getRequestDispatcher(url).forward(request, response);
