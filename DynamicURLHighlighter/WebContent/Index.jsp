@@ -14,10 +14,10 @@ your chosen words! </p>
 <c:if test="${message != null}">
 <p><i>${message}</i></p>
 </c:if>
-<form action="emailList" method="get">
+<form action="urlhighlighter" method="post">
 <input type="hidden" name="action" value="add">
 <label class="pad_top">Please enter valid URL:</label>
-<input type="email" name="email" value="${user.email}"><br>
+<input type="url" name="url" ><br>
 <label>&nbsp;</label>
 <input type="submit" value="Let's Highlight!" class="margin_left">
 </form>

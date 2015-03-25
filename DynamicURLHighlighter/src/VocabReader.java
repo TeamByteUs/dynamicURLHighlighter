@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class VocabReader {
-	public static void main(String[] args) {
-	}
+//	public static void main(String[] args) {
+//		populateArray();
+//		printWords();
+//	}
 
 	public static String[] wordsArray;
 	static List<String> words = new ArrayList<String>();
@@ -23,7 +25,7 @@ public class VocabReader {
 		return wordsArray;
 	}
 
-	@SuppressWarnings("resource")
+//	@SuppressWarnings("resource")
 	public static Scanner openFileForReading() {
 		Scanner scanner = null;
 		try {
