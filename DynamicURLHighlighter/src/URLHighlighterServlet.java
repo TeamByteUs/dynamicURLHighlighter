@@ -25,6 +25,7 @@ public class URLHighlighterServlet extends HttpServlet {
 			String finalHTML = htmlMarker.mark(inUrl);
 			response.getWriter().write(finalHTML);
 		} catch (Exception e) {
+			request.setAttribute("message", "There was an error: " + e.getMessage());
 			doGet(request, response);
 		}
 	}
@@ -32,7 +33,11 @@ public class URLHighlighterServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String message = "Please fill in the URL.";
+		String message = (String) request.getAttribute("message");
+		if (message == null) {
+			message = "Please fill in the URL.";
+		}
+		
 		request.setAttribute("message", message);
 		getServletContext().getRequestDispatcher("/Index.jsp").forward(
 				request, response);
