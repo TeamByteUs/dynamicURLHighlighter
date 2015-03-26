@@ -14,29 +14,23 @@ public class URLHighlighterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		// get current action
-		String action = request.getParameter("action");
-		if (action.equals("add")) { // get parameters from the request
-
-			// validate the parameters and send it back to Index.jsp
-			String message;
-			String inUrl = request.getParameter("userUrl");
-			if (inUrl == null || inUrl.isEmpty()) {
-				message = "Please fill in the URL.";
-				request.setAttribute("message", message);
-				getServletContext().getRequestDispatcher("/Index.jsp").forward(
-						request, response);
-			} else {
-				HTML htmlMarker = new HTML();
-				String finalHTML = htmlMarker.mark(inUrl);
-				response.getWriter().write(finalHTML);
-			}
+		// validate the parameters and send it back to Index.jsp if no userUrl
+		String inUrl = request.getParameter("userUrl");
+		if (inUrl == null || inUrl.isEmpty()) {
+			doGet(request, response);
+			return;
 		}
+		HTML htmlMarker = new HTML();
+		String finalHTML = htmlMarker.mark(inUrl);
+		response.getWriter().write(finalHTML);
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		String message = "Please fill in the URL.";
+		request.setAttribute("message", message);
+		getServletContext().getRequestDispatcher("/Index.jsp").forward(
+				request, response);
 	}
 }
