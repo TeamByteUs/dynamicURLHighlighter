@@ -20,9 +20,13 @@ public class URLHighlighterServlet extends HttpServlet {
 			doGet(request, response);
 			return;
 		}
-		HTML htmlMarker = new HTML();
-		String finalHTML = htmlMarker.mark(inUrl);
-		response.getWriter().write(finalHTML);
+		try {
+			HTML htmlMarker = new HTML();
+			String finalHTML = htmlMarker.mark(inUrl);
+			response.getWriter().write(finalHTML);
+		} catch (Exception e) {
+			doGet(request, response);
+		}
 	}
 
 	@Override
