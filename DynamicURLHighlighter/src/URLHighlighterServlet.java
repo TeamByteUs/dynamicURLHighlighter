@@ -18,7 +18,7 @@ public class URLHighlighterServlet extends HttpServlet {
 		// validate the parameters and send it back to Index.jsp if no userUrl
 		String inUrl = request.getParameter("userUrl");
 		if (inUrl == null || inUrl.isEmpty()) {
-			doGet(request, response);
+			errorOuput(request, response);
 			return;
 		}
 		try {
@@ -33,6 +33,11 @@ public class URLHighlighterServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	private void errorOuput(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String message = (String) request.getAttribute("message");
 		if (message == null) {
