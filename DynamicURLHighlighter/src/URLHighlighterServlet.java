@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 @WebServlet("/urlhighlighter")
-public class URLHighligtherServlet extends HttpServlet {
+public class URLHighlighterServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request,
