@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +24,7 @@ public class URLHighlighterServlet extends HttpServlet {
 		try {
 			HTML htmlMarker = new HTML();
 			String finalHTML = htmlMarker.mark(inUrl);
-			response.getWriter().write(finalHTML);
+			response.getOutputStream().write(finalHTML.getBytes(Charset.forName("UTF-8")));
 		} catch (Exception e) {
 			request.setAttribute("message", "There was an error: " + e.getMessage());
 			doGet(request, response);
