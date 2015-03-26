@@ -27,7 +27,8 @@ public class URLHighligtherServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/Index.jsp").forward(
 						request, response);
 			} else {
-				String finalHTML = HTML.mark(inUrl);
+				HTML htmlMarker = new HTML();
+				String finalHTML = htmlMarker.mark(inUrl);
 				response.getWriter().write(finalHTML);
 			}
 		}
